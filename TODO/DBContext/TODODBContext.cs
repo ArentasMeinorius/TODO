@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using TODO.DBSchemas;
 
@@ -31,6 +32,7 @@ namespace TODO.DBContext
             // Configure columns  
             modelBuilder.Entity<User>().Property(u => u.Id).HasColumnType("int").UseMySqlIdentityColumn().IsRequired();
             modelBuilder.Entity<User>().Property(u => u.UserName).HasColumnType("nvarchar(50)").IsRequired();
+            modelBuilder.Entity<User>().Property(u => u.PassWord).HasColumnType("nvarchar(100)").IsRequired();
             modelBuilder.Entity<User>().Property(u => u.CreationDateTime).HasColumnType("datetime").IsRequired().HasDefaultValue(DateTime.Now);
             modelBuilder.Entity<User>().Property(u => u.ListId).HasColumnType("int").IsRequired();
 

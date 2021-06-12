@@ -8,6 +8,8 @@ namespace TODO.DBSchemas
 
         public string UserName { get; set; }
 
+        public string PassWord { get; set; }
+
         public DateTime CreationDateTime { get; set; }
 
         public int ListId { get; set; }

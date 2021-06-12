@@ -18,7 +18,8 @@ namespace TODO.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     UserName = table.Column<string>(type: "nvarchar(50)", nullable: false),
-                    CreationDateTime = table.Column<DateTime>(type: "datetime", nullable: false, defaultValue: new DateTime(2021, 6, 12, 16, 18, 3, 818, DateTimeKind.Local).AddTicks(1738)),
+                    PassWord = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    CreationDateTime = table.Column<DateTime>(type: "datetime", nullable: false, defaultValue: new DateTime(2021, 6, 12, 20, 37, 38, 184, DateTimeKind.Local).AddTicks(8543)),
                     ListId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
