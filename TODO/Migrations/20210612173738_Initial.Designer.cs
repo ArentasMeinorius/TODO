@@ -10,7 +10,7 @@ using TODO.DBContext;
 namespace TODO.Migrations
 {
     [DbContext(typeof(TODODBContext))]
-    [Migration("20210612131804_Initial")]
+    [Migration("20210612173738_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -86,10 +86,14 @@ namespace TODO.Migrations
                     b.Property<DateTime>("CreationDateTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
-                        .HasDefaultValue(new DateTime(2021, 6, 12, 16, 18, 3, 818, DateTimeKind.Local).AddTicks(1738));
+                        .HasDefaultValue(new DateTime(2021, 6, 12, 20, 37, 38, 184, DateTimeKind.Local).AddTicks(8543));
 
                     b.Property<int>("ListId")
                         .HasColumnType("int");
+
+                    b.Property<string>("PassWord")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("UserName")
                         .IsRequired()
