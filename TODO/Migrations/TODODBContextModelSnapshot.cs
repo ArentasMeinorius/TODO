@@ -42,6 +42,26 @@ namespace TODO.Migrations
                         .IsUnique();
 
                     b.ToTable("Lists");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Joker",
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Avengers: Infinity War",
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Joker",
+                            UserId = 3
+                        });
                 });
 
             modelBuilder.Entity("TODO.DBSchemas.TodoTask", b =>
@@ -72,6 +92,71 @@ namespace TODO.Migrations
                     b.HasIndex("ListId");
 
                     b.ToTable("Tasks");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Completed = (sbyte)0,
+                            ListId = 1,
+                            Name = "Drama"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Completed = (sbyte)0,
+                            ListId = 1,
+                            Name = "Mystery"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Completed = (sbyte)0,
+                            ListId = 1,
+                            Name = "Fantasy"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Completed = (sbyte)0,
+                            ListId = 2,
+                            Name = "Thriller"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Completed = (sbyte)0,
+                            ListId = 2,
+                            Name = "Romance"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Completed = (sbyte)0,
+                            ListId = 2,
+                            Name = "Romance"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Completed = (sbyte)0,
+                            ListId = 3,
+                            Name = "Western"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Completed = (sbyte)0,
+                            ListId = 3,
+                            Name = "Action"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Completed = (sbyte)0,
+                            ListId = 3,
+                            Name = "Horror"
+                        });
                 });
 
             modelBuilder.Entity("TODO.DBSchemas.User", b =>
@@ -84,7 +169,7 @@ namespace TODO.Migrations
                     b.Property<DateTime>("CreationDateTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
-                        .HasDefaultValue(new DateTime(2021, 6, 12, 20, 37, 38, 184, DateTimeKind.Local).AddTicks(8543));
+                        .HasDefaultValue(new DateTime(2021, 6, 12, 21, 42, 9, 911, DateTimeKind.Local).AddTicks(6438));
 
                     b.Property<int>("ListId")
                         .HasColumnType("int");
@@ -101,6 +186,24 @@ namespace TODO.Migrations
                         .HasName("PK_Users");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreationDateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ListId = 1,
+                            PassWord = "AN6NMQ6YNVrPYuFjKlrK2/2q8P+THIL4qxW9e1f1i7DWoMWpeXZPFrtfWnVJauBV3Q==",
+                            UserName = "Scorsese"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreationDateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ListId = 2,
+                            PassWord = "AH/AEHfhG5mlXI7jd5UT9MPzLUqnKgIZFZT+3qoiEwjICuZKpiUr/ZWZ5ecnUevrtg==",
+                            UserName = "Spielberg"
+                        });
                 });
 
             modelBuilder.Entity("TODO.DBSchemas.Admin", b =>
@@ -108,6 +211,16 @@ namespace TODO.Migrations
                     b.HasBaseType("TODO.DBSchemas.User");
 
                     b.ToTable("Admins");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 3,
+                            CreationDateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ListId = 3,
+                            PassWord = "AIj5w8axa7cgIDAXFYkKFeP9c1D8IJhhaFXI+70BDia8UUkdDVYHzkQ6no/B1gqfhA==",
+                            UserName = "Spielberg"
+                        });
                 });
 
             modelBuilder.Entity("TODO.DBSchemas.TodoList", b =>

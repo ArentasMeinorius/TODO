@@ -19,7 +19,7 @@ namespace TODO.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     UserName = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     PassWord = table.Column<string>(type: "nvarchar(100)", nullable: false),
-                    CreationDateTime = table.Column<DateTime>(type: "datetime", nullable: false, defaultValue: new DateTime(2021, 6, 12, 20, 37, 38, 184, DateTimeKind.Local).AddTicks(8543)),
+                    CreationDateTime = table.Column<DateTime>(type: "datetime", nullable: false, defaultValue: new DateTime(2021, 6, 12, 21, 42, 9, 911, DateTimeKind.Local).AddTicks(6438)),
                     ListId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -91,6 +91,52 @@ namespace TODO.Migrations
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "ListId", "PassWord", "UserName" },
+                values: new object[] { 3, 3, "AIj5w8axa7cgIDAXFYkKFeP9c1D8IJhhaFXI+70BDia8UUkdDVYHzkQ6no/B1gqfhA==", "Spielberg" });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "ListId", "PassWord", "UserName" },
+                values: new object[] { 1, 1, "AN6NMQ6YNVrPYuFjKlrK2/2q8P+THIL4qxW9e1f1i7DWoMWpeXZPFrtfWnVJauBV3Q==", "Scorsese" });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "ListId", "PassWord", "UserName" },
+                values: new object[] { 2, 2, "AH/AEHfhG5mlXI7jd5UT9MPzLUqnKgIZFZT+3qoiEwjICuZKpiUr/ZWZ5ecnUevrtg==", "Spielberg" });
+
+            migrationBuilder.InsertData(
+                table: "Admins",
+                column: "Id",
+                value: 3);
+
+            migrationBuilder.InsertData(
+                table: "Lists",
+                columns: new[] { "Id", "Description", "Name", "UserId" },
+                values: new object[,]
+                {
+                    { 3, null, "Joker", 3 },
+                    { 1, null, "Joker", 1 },
+                    { 2, null, "Avengers: Infinity War", 2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Tasks",
+                columns: new[] { "Id", "Description", "ListId", "Name" },
+                values: new object[,]
+                {
+                    { 7, null, 3, "Western" },
+                    { 8, null, 3, "Action" },
+                    { 9, null, 3, "Horror" },
+                    { 1, null, 1, "Drama" },
+                    { 2, null, 1, "Mystery" },
+                    { 3, null, 1, "Fantasy" },
+                    { 4, null, 2, "Thriller" },
+                    { 5, null, 2, "Romance" },
+                    { 6, null, 2, "Romance" }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Lists_UserId",
