@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TODO.DBSchemas
 {
@@ -9,7 +8,10 @@ namespace TODO.DBSchemas
 
         public string UserName { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime CreationDateTime { get; set; }
+
+        public int ListId { get; set; }
+
+        public TodoList List { get; set; }
     }
 }

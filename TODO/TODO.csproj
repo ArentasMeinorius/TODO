@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="DBContext\" />
     <Folder Include="Migrations\" />
   </ItemGroup>
 
