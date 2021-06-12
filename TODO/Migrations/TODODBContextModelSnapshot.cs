@@ -38,28 +38,25 @@ namespace TODO.Migrations
                     b.HasKey("Id")
                         .HasName("PK_Lists");
 
-                    b.HasIndex("UserId")
-                        .IsUnique();
-
                     b.ToTable("Lists");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            Name = "Joker",
+                            Name = "Terminator",
                             UserId = 1
                         },
                         new
                         {
                             Id = 2,
-                            Name = "Avengers: Infinity War",
+                            Name = "Joker",
                             UserId = 2
                         },
                         new
                         {
                             Id = 3,
-                            Name = "Joker",
+                            Name = "Forrest Gump",
                             UserId = 3
                         });
                 });
@@ -86,10 +83,16 @@ namespace TODO.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<int?>("TodoListId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id")
                         .HasName("PK_Tasks");
 
-                    b.HasIndex("ListId");
+                    b.HasIndex("TodoListId");
 
                     b.ToTable("Tasks");
 
@@ -99,63 +102,72 @@ namespace TODO.Migrations
                             Id = 1,
                             Completed = (sbyte)0,
                             ListId = 1,
-                            Name = "Drama"
+                            Name = "Mystery",
+                            UserId = 1
                         },
                         new
                         {
                             Id = 2,
                             Completed = (sbyte)0,
                             ListId = 1,
-                            Name = "Mystery"
+                            Name = "Western",
+                            UserId = 1
                         },
                         new
                         {
                             Id = 3,
                             Completed = (sbyte)0,
                             ListId = 1,
-                            Name = "Fantasy"
+                            Name = "Comedy",
+                            UserId = 1
                         },
                         new
                         {
                             Id = 4,
                             Completed = (sbyte)0,
                             ListId = 2,
-                            Name = "Thriller"
+                            Name = "Romance",
+                            UserId = 2
                         },
                         new
                         {
                             Id = 5,
                             Completed = (sbyte)0,
                             ListId = 2,
-                            Name = "Romance"
+                            Name = "Horror",
+                            UserId = 2
                         },
                         new
                         {
                             Id = 6,
                             Completed = (sbyte)0,
                             ListId = 2,
-                            Name = "Romance"
+                            Name = "Mystery",
+                            UserId = 2
                         },
                         new
                         {
                             Id = 7,
                             Completed = (sbyte)0,
                             ListId = 3,
-                            Name = "Western"
+                            Name = "Fantasy",
+                            UserId = 3
                         },
                         new
                         {
                             Id = 8,
                             Completed = (sbyte)0,
                             ListId = 3,
-                            Name = "Action"
+                            Name = "Fantasy",
+                            UserId = 3
                         },
                         new
                         {
                             Id = 9,
                             Completed = (sbyte)0,
                             ListId = 3,
-                            Name = "Horror"
+                            Name = "Comedy",
+                            UserId = 3
                         });
                 });
 
@@ -169,9 +181,12 @@ namespace TODO.Migrations
                     b.Property<DateTime>("CreationDateTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
-                        .HasDefaultValue(new DateTime(2021, 6, 12, 21, 42, 9, 911, DateTimeKind.Local).AddTicks(6438));
+                        .HasDefaultValue(new DateTime(2021, 6, 13, 0, 30, 41, 908, DateTimeKind.Local).AddTicks(2161));
 
                     b.Property<int>("ListId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ListId1")
                         .HasColumnType("int");
 
                     b.Property<string>("PassWord")
@@ -185,6 +200,8 @@ namespace TODO.Migrations
                     b.HasKey("Id")
                         .HasName("PK_Users");
 
+                    b.HasIndex("ListId1");
+
                     b.ToTable("Users");
 
                     b.HasData(
@@ -193,16 +210,16 @@ namespace TODO.Migrations
                             Id = 1,
                             CreationDateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ListId = 1,
-                            PassWord = "AN6NMQ6YNVrPYuFjKlrK2/2q8P+THIL4qxW9e1f1i7DWoMWpeXZPFrtfWnVJauBV3Q==",
-                            UserName = "Scorsese"
+                            PassWord = "ABshQgO2pfzQhsjdrHcxRJhJ3Zg7tPos5PaskJLAAo75OU9EJYkBQdlL38oCrp6WbA==",
+                            UserName = "Kubrick1"
                         },
                         new
                         {
                             Id = 2,
                             CreationDateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ListId = 2,
-                            PassWord = "AH/AEHfhG5mlXI7jd5UT9MPzLUqnKgIZFZT+3qoiEwjICuZKpiUr/ZWZ5ecnUevrtg==",
-                            UserName = "Spielberg"
+                            PassWord = "AHdh789pRGLZBf38Ljqb5gue+qrINCdbEVX+6yazycrqmmdMw4MKFPhVzP54n0/JyA==",
+                            UserName = "Spielberg2"
                         });
                 });
 
@@ -218,29 +235,23 @@ namespace TODO.Migrations
                             Id = 3,
                             CreationDateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ListId = 3,
-                            PassWord = "AIj5w8axa7cgIDAXFYkKFeP9c1D8IJhhaFXI+70BDia8UUkdDVYHzkQ6no/B1gqfhA==",
-                            UserName = "Spielberg"
+                            PassWord = "AGPwzy8DbaYkVFo5uxyKAy6mFHIvYXcxhsE1GnEwsRpfeu6VV8b/+ThRzqQyLoj/aw==",
+                            UserName = "Nolan3"
                         });
-                });
-
-            modelBuilder.Entity("TODO.DBSchemas.TodoList", b =>
-                {
-                    b.HasOne("TODO.DBSchemas.User", "User")
-                        .WithOne("List")
-                        .HasForeignKey("TODO.DBSchemas.TodoList", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("TODO.DBSchemas.TodoTask", b =>
                 {
-                    b.HasOne("TODO.DBSchemas.TodoList", "List")
+                    b.HasOne("TODO.DBSchemas.TodoList", null)
                         .WithMany("Tasks")
-                        .HasForeignKey("ListId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TodoListId");
+                });
+
+            modelBuilder.Entity("TODO.DBSchemas.User", b =>
+                {
+                    b.HasOne("TODO.DBSchemas.TodoList", "List")
+                        .WithMany()
+                        .HasForeignKey("ListId1");
 
                     b.Navigation("List");
                 });
@@ -257,11 +268,6 @@ namespace TODO.Migrations
             modelBuilder.Entity("TODO.DBSchemas.TodoList", b =>
                 {
                     b.Navigation("Tasks");
-                });
-
-            modelBuilder.Entity("TODO.DBSchemas.User", b =>
-                {
-                    b.Navigation("List");
                 });
 #pragma warning restore 612, 618
         }

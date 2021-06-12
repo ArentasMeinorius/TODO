@@ -55,13 +55,10 @@ namespace TODO.DBContext
             modelBuilder.Entity<TodoList>().Property(l => l.UserId).HasColumnType("int").IsRequired();
 
             modelBuilder.Entity<TodoList>()
-                .HasMany(x => x.Tasks)
-                .WithOne(x => x.List);
-            
+                .HasMany(x => x.Tasks);
+
             modelBuilder.Entity<User>()
-                .HasOne(x => x.List)
-                .WithOne(x => x.User)
-                .HasForeignKey<TodoList>(x => x.UserId);
+                .HasOne(x => x.List);
 
             CreateData(modelBuilder);
         }
@@ -70,8 +67,9 @@ namespace TODO.DBContext
         {
             var user = isAdmin ? new Admin() : new User();
             var index = m_random.Next(0, Constants.UserNames.Length);
-            user.UserName = Constants.UserNames[index];
-            user.PassWord = m_hasher.HashPassword(Constants.UserNames[index]);
+            var name = Constants.UserNames[index] + id;
+            user.UserName = name;
+            user.PassWord = m_hasher.HashPassword(name);
             user.Id = id;
             user.ListId = id;
             return user;
@@ -93,6 +91,7 @@ namespace TODO.DBContext
             var task = new TodoTask();
             task.Id = id;
             task.ListId = listId;
+            task.UserId = listId;
             var index = m_random.Next(0, Constants.TaskNames.Length);
             task.Name = Constants.TaskNames[index];
             return task;

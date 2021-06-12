@@ -12,8 +12,6 @@ namespace TODO.DBSchemas
 
         public int UserId { get; set; }
 
-        public User User { get; set; }
-
         public ICollection<TodoTask> Tasks { get; set; }
     }
 }

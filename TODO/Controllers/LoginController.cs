@@ -18,7 +18,7 @@ namespace TODO.Controllers
     [ApiController]
     public class LoginController : Controller
     {
-        private IConfiguration _config;
+        private IConfiguration m_config;
 
         private TODODBContext dbContext;
 
@@ -26,7 +26,7 @@ namespace TODO.Controllers
 
         public LoginController(IConfiguration config, TODODBContext context)
         {
-            _config = config;
+            m_config = config;
             dbContext = context;
             m_hasher = new PasswordHasher();
         }
@@ -50,17 +50,17 @@ namespace TODO.Controllers
 
         private string GenerateJSONWebToken(int userId)
         {
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(m_config[Constants.JwtKey]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             var isAdmin = dbContext.Admins.Any(x => x.Id == userId);
             var claims = new[] {
-                new Claim(Constants.UserType, isAdmin ? "Admin" : "User"),
+                new Claim(Constants.UserType, (isAdmin ? UserTypes.Admin : UserTypes.User).ToString()),
                 new Claim(Constants.UserId, userId.ToString()),
             };
 
-            var token = new JwtSecurityToken(_config["Jwt:Issuer"],
-              _config["Jwt:Issuer"],
+            var token = new JwtSecurityToken(m_config[Constants.JwtIssuer],
+              m_config[Constants.JwtIssuer],
               claims,
               expires: DateTime.Now.AddMinutes(120),
               signingCredentials: credentials);
