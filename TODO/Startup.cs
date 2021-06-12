@@ -7,8 +7,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Collections.Generic;
 using System.Text;
 using TODO.DBContext;
+using Constants = TODO.Helpers.Constants;
 
 namespace TODO
 {
@@ -27,10 +29,28 @@ namespace TODO
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-            c.SwaggerDoc("v1", new OpenApiInfo
-                {
-                Title = "TODO",
-                Version = "v1"
+                c.SwaggerDoc("v1", new OpenApiInfo
+                    {
+                    Title = "TODO",
+                    Version = "v1"
+                    });
+
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                    {
+                        Description = "JWT Authorization header using the Bearer scheme.",
+                        Type = SecuritySchemeType.Http,
+                        Scheme = "bearer"
+                    });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement{
+                    {
+                        new OpenApiSecurityScheme{
+                            Reference = new OpenApiReference{
+                                Id = "Bearer",
+                                Type = ReferenceType.SecurityScheme
+                            }
+                        },new List<string>()
+                    }
                 });
             });
             string mySqlConnectionStr = Configuration.GetConnectionString("DefaultConnection");
@@ -45,9 +65,9 @@ namespace TODO
                     ValidateAudience = true,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    ValidIssuer = Configuration["Jwt:Issuer"],
-                    ValidAudience = Configuration["Jwt:Issuer"],
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+                    ValidIssuer = Configuration[Constants.JwtIssuer],
+                    ValidAudience = Configuration[Constants.JwtIssuer],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration[Constants.JwtKey]))
                 };
             });
         }
