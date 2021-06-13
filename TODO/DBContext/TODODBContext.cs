@@ -8,7 +8,7 @@ using Constants = TODO.Helpers.Constants;
 
 namespace TODO.DBContext
 {
-    public class TODODBContext : DbContext
+    public class TODODBContext : DbContext, ITODODBContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Admin> Admins { get; set; }
@@ -82,7 +82,7 @@ namespace TODO.DBContext
             list.Name = Constants.ListNames[index];
             list.Id = id;
             list.UserId = id;
-            list.Tasks = new Collection<TodoTask> {};
+            list.Tasks = new Collection<TodoTask> { };
             return list;
         }
 

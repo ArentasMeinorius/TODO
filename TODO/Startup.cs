@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,7 +10,7 @@ using Microsoft.OpenApi.Models;
 using System.Collections.Generic;
 using System.Text;
 using TODO.DBContext;
-using TODO.DBSchemas;
+using TODO.Helpers;
 using Constants = TODO.Helpers.Constants;
 
 namespace TODO
@@ -72,6 +71,9 @@ namespace TODO
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration[Constants.JwtKey]))
                 };
             });
+            services.AddScoped<ITODODBContext, TODODBContext>();
+            services.AddScoped<ILoginHelper, LoginHelper>();
+            services.AddScoped<IResetPasswordHelper, ResetPasswordHelper>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
