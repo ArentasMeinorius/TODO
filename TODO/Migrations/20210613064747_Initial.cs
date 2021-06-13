@@ -60,7 +60,7 @@ namespace TODO.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     UserName = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     PassWord = table.Column<string>(type: "nvarchar(100)", nullable: false),
-                    CreationDateTime = table.Column<DateTime>(type: "datetime", nullable: false, defaultValue: new DateTime(2021, 6, 13, 0, 30, 41, 908, DateTimeKind.Local).AddTicks(2161)),
+                    CreationDateTime = table.Column<DateTime>(type: "datetime", nullable: false, defaultValue: new DateTime(2021, 6, 13, 9, 47, 46, 798, DateTimeKind.Local).AddTicks(1479)),
                     ListId = table.Column<int>(type: "int", nullable: false),
                     ListId1 = table.Column<int>(type: "int", nullable: true)
                 },
@@ -100,9 +100,9 @@ namespace TODO.Migrations
                 columns: new[] { "Id", "Description", "Name", "UserId" },
                 values: new object[,]
                 {
-                    { 1, null, "Terminator", 1 },
-                    { 2, null, "Joker", 2 },
-                    { 3, null, "Forrest Gump", 3 }
+                    { 1, null, "Avengers: Infinity War", 1 },
+                    { 2, null, "The Matrix", 2 },
+                    { 3, null, "The Matrix", 3 }
                 });
 
             migrationBuilder.InsertData(
@@ -111,14 +111,14 @@ namespace TODO.Migrations
                 values: new object[,]
                 {
                     { 1, null, 1, "Mystery", null, 1 },
-                    { 2, null, 1, "Western", null, 1 },
-                    { 3, null, 1, "Comedy", null, 1 },
-                    { 4, null, 2, "Romance", null, 2 },
-                    { 5, null, 2, "Horror", null, 2 },
-                    { 6, null, 2, "Mystery", null, 2 },
-                    { 7, null, 3, "Fantasy", null, 3 },
-                    { 8, null, 3, "Fantasy", null, 3 },
-                    { 9, null, 3, "Comedy", null, 3 }
+                    { 2, null, 1, "Fantasy", null, 1 },
+                    { 3, null, 1, "Drama", null, 1 },
+                    { 4, null, 2, "Drama", null, 2 },
+                    { 5, null, 2, "Action", null, 2 },
+                    { 6, null, 2, "Horror", null, 2 },
+                    { 7, null, 3, "Drama", null, 3 },
+                    { 8, null, 3, "Action", null, 3 },
+                    { 9, null, 3, "Thriller", null, 3 }
                 });
 
             migrationBuilder.InsertData(
@@ -126,9 +126,9 @@ namespace TODO.Migrations
                 columns: new[] { "Id", "ListId", "ListId1", "PassWord", "UserName" },
                 values: new object[,]
                 {
-                    { 3, 3, null, "AGPwzy8DbaYkVFo5uxyKAy6mFHIvYXcxhsE1GnEwsRpfeu6VV8b/+ThRzqQyLoj/aw==", "Nolan3" },
-                    { 1, 1, null, "ABshQgO2pfzQhsjdrHcxRJhJ3Zg7tPos5PaskJLAAo75OU9EJYkBQdlL38oCrp6WbA==", "Kubrick1" },
-                    { 2, 2, null, "AHdh789pRGLZBf38Ljqb5gue+qrINCdbEVX+6yazycrqmmdMw4MKFPhVzP54n0/JyA==", "Spielberg2" }
+                    { 3, 3, null, "AD3LK5Hd8EUOXqBmlbMhGyn5UEvvHOfiwjcbHIHzwmNn+h4UHvqUYFRhWMnuBsERZg==", "Spielberg3" },
+                    { 1, 1, null, "ABTGns1rQTEUxCS7CsHY/78BHDyWfA/3Fh9qfW4kw/czW/WiWvE3WkSe+UCIDkC7Pw==", "Hitchcock1" },
+                    { 2, 2, null, "AI07FcsYajp4dRh5eB2ZPylloXmFXPIQ95I7H4ZzwSfWS8dDGhzrvoTnJ6GG41X6sA==", "Nolan2" }
                 });
 
             migrationBuilder.InsertData(

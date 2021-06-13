@@ -22,7 +22,7 @@ namespace TODO.Controllers
         
         [Authorize]
         [HttpDelete]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
             var userId = GetClaimValue(Constants.UserId);
             var task = dbContext.Tasks.Where(x => x.Id == id).Single();
@@ -31,17 +31,17 @@ namespace TODO.Controllers
                 var userType = GetClaimValue(Constants.UserType);
                 if (userType != UserTypes.Admin.ToString())
                 {
-                    Forbid();
+                    return Forbid();
                 }
             }
             dbContext.Tasks.Remove(task);
             dbContext.SaveChanges();
-            Ok();
+            return Ok();
         }
         
         [Authorize]
         [HttpPut]
-        public void Update([FromBody] TaskInfo task)
+        public IActionResult Update([FromBody] TaskInfo task)
         {
             var userId = GetClaimValue(Constants.UserId);
             var realTask = dbContext.Tasks.Where(x => x.Id == task.Id).Single();
@@ -50,7 +50,7 @@ namespace TODO.Controllers
                 var userType = GetClaimValue(Constants.UserType);
                 if (userType != UserTypes.Admin.ToString())
                 {
-                    Forbid();
+                    return Forbid ();
                 }
             }
             realTask.Name = task.Name ?? realTask.Name;
@@ -58,19 +58,19 @@ namespace TODO.Controllers
             realTask.Completed = task.Completed;
             dbContext.Tasks.Update(realTask);
             dbContext.SaveChanges();
-            Ok();
+            return Ok ();
         }
         
         [Authorize]
         [HttpPost]
-        public void Create([FromBody] TaskCreate task)
+        public IActionResult Create([FromBody] TaskCreate task)
         {
             var userId = GetClaimValue(Constants.UserId);
             var listId = dbContext.Lists.Where(x => x.UserId.ToString() == userId).Single().Id;
             var newTask = new TodoTask(task.Name, task.Description, task.Completed, listId, int.Parse(userId));
             dbContext.Tasks.Add(newTask);
             dbContext.SaveChanges();
-            Ok();
+            return Ok ();
         }
         
         private string GetClaimValue(string claimType)

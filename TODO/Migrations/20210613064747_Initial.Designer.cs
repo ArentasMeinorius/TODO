@@ -10,7 +10,7 @@ using TODO.DBContext;
 namespace TODO.Migrations
 {
     [DbContext(typeof(TODODBContext))]
-    [Migration("20210612213042_Initial")]
+    [Migration("20210613064747_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,19 +46,19 @@ namespace TODO.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "Terminator",
+                            Name = "Avengers: Infinity War",
                             UserId = 1
                         },
                         new
                         {
                             Id = 2,
-                            Name = "Joker",
+                            Name = "The Matrix",
                             UserId = 2
                         },
                         new
                         {
                             Id = 3,
-                            Name = "Forrest Gump",
+                            Name = "The Matrix",
                             UserId = 3
                         });
                 });
@@ -112,7 +112,7 @@ namespace TODO.Migrations
                             Id = 2,
                             Completed = (sbyte)0,
                             ListId = 1,
-                            Name = "Western",
+                            Name = "Fantasy",
                             UserId = 1
                         },
                         new
@@ -120,7 +120,7 @@ namespace TODO.Migrations
                             Id = 3,
                             Completed = (sbyte)0,
                             ListId = 1,
-                            Name = "Comedy",
+                            Name = "Drama",
                             UserId = 1
                         },
                         new
@@ -128,7 +128,7 @@ namespace TODO.Migrations
                             Id = 4,
                             Completed = (sbyte)0,
                             ListId = 2,
-                            Name = "Romance",
+                            Name = "Drama",
                             UserId = 2
                         },
                         new
@@ -136,7 +136,7 @@ namespace TODO.Migrations
                             Id = 5,
                             Completed = (sbyte)0,
                             ListId = 2,
-                            Name = "Horror",
+                            Name = "Action",
                             UserId = 2
                         },
                         new
@@ -144,7 +144,7 @@ namespace TODO.Migrations
                             Id = 6,
                             Completed = (sbyte)0,
                             ListId = 2,
-                            Name = "Mystery",
+                            Name = "Horror",
                             UserId = 2
                         },
                         new
@@ -152,7 +152,7 @@ namespace TODO.Migrations
                             Id = 7,
                             Completed = (sbyte)0,
                             ListId = 3,
-                            Name = "Fantasy",
+                            Name = "Drama",
                             UserId = 3
                         },
                         new
@@ -160,7 +160,7 @@ namespace TODO.Migrations
                             Id = 8,
                             Completed = (sbyte)0,
                             ListId = 3,
-                            Name = "Fantasy",
+                            Name = "Action",
                             UserId = 3
                         },
                         new
@@ -168,7 +168,7 @@ namespace TODO.Migrations
                             Id = 9,
                             Completed = (sbyte)0,
                             ListId = 3,
-                            Name = "Comedy",
+                            Name = "Thriller",
                             UserId = 3
                         });
                 });
@@ -183,7 +183,7 @@ namespace TODO.Migrations
                     b.Property<DateTime>("CreationDateTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
-                        .HasDefaultValue(new DateTime(2021, 6, 13, 0, 30, 41, 908, DateTimeKind.Local).AddTicks(2161));
+                        .HasDefaultValue(new DateTime(2021, 6, 13, 9, 47, 46, 798, DateTimeKind.Local).AddTicks(1479));
 
                     b.Property<int>("ListId")
                         .HasColumnType("int");
@@ -212,16 +212,16 @@ namespace TODO.Migrations
                             Id = 1,
                             CreationDateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ListId = 1,
-                            PassWord = "ABshQgO2pfzQhsjdrHcxRJhJ3Zg7tPos5PaskJLAAo75OU9EJYkBQdlL38oCrp6WbA==",
-                            UserName = "Kubrick1"
+                            PassWord = "ABTGns1rQTEUxCS7CsHY/78BHDyWfA/3Fh9qfW4kw/czW/WiWvE3WkSe+UCIDkC7Pw==",
+                            UserName = "Hitchcock1"
                         },
                         new
                         {
                             Id = 2,
                             CreationDateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ListId = 2,
-                            PassWord = "AHdh789pRGLZBf38Ljqb5gue+qrINCdbEVX+6yazycrqmmdMw4MKFPhVzP54n0/JyA==",
-                            UserName = "Spielberg2"
+                            PassWord = "AI07FcsYajp4dRh5eB2ZPylloXmFXPIQ95I7H4ZzwSfWS8dDGhzrvoTnJ6GG41X6sA==",
+                            UserName = "Nolan2"
                         });
                 });
 
@@ -237,8 +237,8 @@ namespace TODO.Migrations
                             Id = 3,
                             CreationDateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ListId = 3,
-                            PassWord = "AGPwzy8DbaYkVFo5uxyKAy6mFHIvYXcxhsE1GnEwsRpfeu6VV8b/+ThRzqQyLoj/aw==",
-                            UserName = "Nolan3"
+                            PassWord = "AD3LK5Hd8EUOXqBmlbMhGyn5UEvvHOfiwjcbHIHzwmNn+h4UHvqUYFRhWMnuBsERZg==",
+                            UserName = "Spielberg3"
                         });
                 });
 
