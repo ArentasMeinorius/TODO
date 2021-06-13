@@ -1,5 +1,4 @@
-﻿using System;
-namespace TODO.Helpers
+﻿namespace TODO.Helpers
 {
     public class TaskInfo : TaskCreate
     {

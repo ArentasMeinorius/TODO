@@ -44,19 +44,19 @@ namespace TODO.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "Avengers: Infinity War",
+                            Name = "12 Angry Men",
                             UserId = 1
                         },
                         new
                         {
                             Id = 2,
-                            Name = "The Matrix",
+                            Name = "Avengers: Infinity War",
                             UserId = 2
                         },
                         new
                         {
                             Id = 3,
-                            Name = "The Matrix",
+                            Name = "Forrest Gump",
                             UserId = 3
                         });
                 });
@@ -102,7 +102,7 @@ namespace TODO.Migrations
                             Id = 1,
                             Completed = (sbyte)0,
                             ListId = 1,
-                            Name = "Mystery",
+                            Name = "Romance",
                             UserId = 1
                         },
                         new
@@ -110,7 +110,7 @@ namespace TODO.Migrations
                             Id = 2,
                             Completed = (sbyte)0,
                             ListId = 1,
-                            Name = "Fantasy",
+                            Name = "Western",
                             UserId = 1
                         },
                         new
@@ -126,7 +126,7 @@ namespace TODO.Migrations
                             Id = 4,
                             Completed = (sbyte)0,
                             ListId = 2,
-                            Name = "Drama",
+                            Name = "Romance",
                             UserId = 2
                         },
                         new
@@ -134,7 +134,7 @@ namespace TODO.Migrations
                             Id = 5,
                             Completed = (sbyte)0,
                             ListId = 2,
-                            Name = "Action",
+                            Name = "Horror",
                             UserId = 2
                         },
                         new
@@ -142,7 +142,7 @@ namespace TODO.Migrations
                             Id = 6,
                             Completed = (sbyte)0,
                             ListId = 2,
-                            Name = "Horror",
+                            Name = "Western",
                             UserId = 2
                         },
                         new
@@ -158,7 +158,7 @@ namespace TODO.Migrations
                             Id = 8,
                             Completed = (sbyte)0,
                             ListId = 3,
-                            Name = "Action",
+                            Name = "Comedy",
                             UserId = 3
                         },
                         new
@@ -166,7 +166,7 @@ namespace TODO.Migrations
                             Id = 9,
                             Completed = (sbyte)0,
                             ListId = 3,
-                            Name = "Thriller",
+                            Name = "Western",
                             UserId = 3
                         });
                 });
@@ -181,7 +181,7 @@ namespace TODO.Migrations
                     b.Property<DateTime>("CreationDateTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
-                        .HasDefaultValue(new DateTime(2021, 6, 13, 9, 47, 46, 798, DateTimeKind.Local).AddTicks(1479));
+                        .HasDefaultValue(new DateTime(2021, 6, 13, 11, 4, 40, 547, DateTimeKind.Local).AddTicks(8222));
 
                     b.Property<int>("ListId")
                         .HasColumnType("int");
@@ -210,16 +210,16 @@ namespace TODO.Migrations
                             Id = 1,
                             CreationDateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ListId = 1,
-                            PassWord = "ABTGns1rQTEUxCS7CsHY/78BHDyWfA/3Fh9qfW4kw/czW/WiWvE3WkSe+UCIDkC7Pw==",
-                            UserName = "Hitchcock1"
+                            PassWord = "ALk0SFF27J/KzzOwNNQVio4sioq4H+hijLZ/rtBO6U/pN+Bi41l8+nDDinMhB0AxNg==",
+                            UserName = "Tarantino@gmail.com1"
                         },
                         new
                         {
                             Id = 2,
                             CreationDateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ListId = 2,
-                            PassWord = "AI07FcsYajp4dRh5eB2ZPylloXmFXPIQ95I7H4ZzwSfWS8dDGhzrvoTnJ6GG41X6sA==",
-                            UserName = "Nolan2"
+                            PassWord = "AGBTbw6rB+WS6gBbViD1PKSHHbnUrt4SEDjkl6gS4PtFddyI9j2mF6aCGuDZiMajIg==",
+                            UserName = "Kubrick@gmail.com2"
                         });
                 });
 
@@ -235,8 +235,8 @@ namespace TODO.Migrations
                             Id = 3,
                             CreationDateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ListId = 3,
-                            PassWord = "AD3LK5Hd8EUOXqBmlbMhGyn5UEvvHOfiwjcbHIHzwmNn+h4UHvqUYFRhWMnuBsERZg==",
-                            UserName = "Spielberg3"
+                            PassWord = "ALqCSSNEXiR9NIZyYKZfb7RxGETmHN7AF7oWi7DRQt3vEBHc7JhmyrzYxRPTcrqYyQ==",
+                            UserName = "Spielberg@gmail.com3"
                         });
                 });
 

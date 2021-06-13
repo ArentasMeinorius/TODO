@@ -12,11 +12,11 @@ namespace TODO.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class TodoListController : ControllerBase
+    public class TodoListController : Controller
     {
-        private TODODBContext dbContext;
+        private ITODODBContext dbContext;
 
-        public TodoListController(TODODBContext context)
+        public TodoListController(ITODODBContext context)
         {
             dbContext = context;
         }

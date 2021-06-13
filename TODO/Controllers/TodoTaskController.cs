@@ -11,11 +11,11 @@ namespace TODO.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class TodoTaskController : ControllerBase
+    public class TodoTaskController : Controller
     {
-        private TODODBContext dbContext;
+        private ITODODBContext dbContext;
 
-        public TodoTaskController(TODODBContext context)
+        public TodoTaskController(ITODODBContext context)
         {
             dbContext = context;
         }
@@ -25,13 +25,15 @@ namespace TODO.Controllers
         public IActionResult Delete(int id)
         {
             var userId = GetClaimValue(Constants.UserId);
-            var task = dbContext.Tasks.Where(x => x.Id == id).Single();
+            var task = dbContext.Tasks.Where(x => x.Id == id).SingleOrDefault();
+            if (task == null)
+                return NotFound();
             if (userId != task.UserId.ToString())
             {
                 var userType = GetClaimValue(Constants.UserType);
                 if (userType != UserTypes.Admin.ToString())
                 {
-                    return Forbid();
+                    return NotFound();
                 }
             }
             dbContext.Tasks.Remove(task);
@@ -50,7 +52,7 @@ namespace TODO.Controllers
                 var userType = GetClaimValue(Constants.UserType);
                 if (userType != UserTypes.Admin.ToString())
                 {
-                    return Forbid ();
+                    return NotFound ();
                 }
             }
             realTask.Name = task.Name ?? realTask.Name;
